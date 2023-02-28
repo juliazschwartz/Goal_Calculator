@@ -1,31 +1,31 @@
 <?php
 
-namespace Alura\Solid\Model;
-
+namespace CompanyX\Model;
+//Feedback Given by the Company
 class FeedBack
 {
-    private $nota;
-    private $depoimento;
+    private $rating;
+    private $notes;
 
-    public function __construct(int $nota, ?string $depoimento)
+    public function __construct(int $rating, ?string $notes)
     {
-        if ($nota < 9 && empty($depoimento)) {
-            throw new \DomainException('Depoimento obrigatório');
+        if ($rating < 9 && empty($notes)) {
+            throw new \DomainException('notes mandatory');
         }
 
-        $this->nota = $nota;
-        $this->depoimento = $depoimento;
+        $this->notes = $notes;
+        $this->rating = $rating;
     }
 
 
-    public function recuperaNota(): int
+    public function getNotes(): ?string
     {
-        return $this->nota;
+        return $this->notes;
     }
 
 
-    public function recuperaDepoimento(): ?string
+    public function getRating(): int
     {
-        return $this->depoimento;
+        return $this->rating;
     }
 }
